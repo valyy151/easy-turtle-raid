@@ -4,6 +4,8 @@ import { getServerAuthSession } from "@/server/auth";
 import { AuthButtons } from "@/components/auth-buttons";
 import { Code2Icon, CoffeeIcon } from "lucide-react";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const raidTypes = await api.raid.getAll.query();
   const session = await getServerAuthSession();
