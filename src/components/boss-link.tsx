@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
-import { useParams } from "next/navigation";
 import { useOptimistic } from "react";
+import { useParams } from "next/navigation";
 
 export function BossLink({
   boss,

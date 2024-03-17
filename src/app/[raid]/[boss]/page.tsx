@@ -34,7 +34,7 @@ export default async function BossPage({
     <div className="flex flex-col gap-4 pt-1">
       <h4 className="font-concert text-3xl font-semibold">{boss?.name}</h4>
       <div className="flex items-start">
-        <div className="flex flex-col gap-4 pt-4">
+        <div className="flex min-w-[48rem] max-w-3xl flex-col gap-4 pt-4">
           <Tactics title="DPS" tactics={boss?.tactics?.dps} />
           <Tactics title="Tank" tactics={boss?.tactics?.tank} />
           <Tactics title="Healers" tactics={boss?.tactics?.heal} />

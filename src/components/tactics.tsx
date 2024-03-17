@@ -6,7 +6,7 @@ export function Tactics({
   title: string;
 }) {
   return (
-    <div className="flex min-w-[65ch] max-w-prose flex-col">
+    <div className="flex w-full flex-col">
       <strong
         className={`pb-2 font-concert text-3xl ${title === "DPS" && "text-red-500"} ${title === "Healers" && "text-green-500"} ${title === "Tank" && "text-sky-500"}`}
       >
