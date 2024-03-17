@@ -13,7 +13,9 @@ export async function Sidebar({ raidId }: { raidId: string }) {
         <Link href={`/${raid?.id}`}>{raid?.name}</Link>
       </h2>
       <div className="flex flex-col gap-1 px-4 pt-2">
-        {raid?.bosses?.map((boss) => <BossLink boss={boss} raidId={raidId} />)}
+        {raid?.bosses?.map((boss) => (
+          <BossLink key={boss.id} boss={boss} raidId={raidId} />
+        ))}
       </div>
     </div>
   );

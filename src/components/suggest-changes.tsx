@@ -10,9 +10,9 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { sendMail } from "@/server/actions/send";
 import { Button } from "./ui/button";
-import { Session } from "next-auth";
+import type { Session } from "next-auth";
 import { AuthButtons } from "./auth-buttons";
-import { Boss } from "@/trpc/shared";
+import type { Boss } from "@/trpc/shared";
 
 export function SuggestChanges({
   boss,
@@ -35,7 +35,7 @@ export function SuggestChanges({
     }
     setIsSubmitting(true);
     try {
-      await sendMail({ raid, boss: boss?.name as string, suggestion });
+      await sendMail({ raid, boss: boss?.name!, suggestion });
       setSuggestion("");
       setOpen(false);
       toast("Suggestion sent!");

@@ -1,14 +1,11 @@
 "use client";
 
 import { UserRoundXIcon } from "lucide-react";
-import { Session } from "next-auth";
-import { useState } from "react";
 import {
   AlertDialog,
   AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
-  AlertDialogDescription,
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,

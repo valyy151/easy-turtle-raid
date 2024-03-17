@@ -1,9 +1,25 @@
 import { TrashPack } from "@/components/trash-pack";
 import { getServerAuthSession } from "@/server/auth";
 import { api } from "@/trpc/server";
-import { CirclePlus, Trash } from "lucide-react";
-import Image from "next/image";
+import { CirclePlus } from "lucide-react";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { raid: string };
+}): Promise<Metadata> {
+  const id = params.raid;
+
+  const raid = await api.raid.getById.query(id);
+
+  return {
+    title: `${raid?.name}`,
+    description: `Trash tactics for ${raid?.name}`,
+    icons: [{ rel: "icon", url: "/turtle.svg" }],
+  };
+}
 
 export default async function RaidPage({
   params,

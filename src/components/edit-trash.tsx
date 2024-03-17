@@ -3,7 +3,7 @@ import { api } from "@/trpc/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Button } from "./ui/button";
-import { Trash } from "@/trpc/shared";
+import type { Trash } from "@/trpc/shared";
 
 export function EditTrash({ raidId, trash }: { raidId: string; trash: Trash }) {
   const [title, setTitle] = useState(trash?.title || "Enter trash title here");

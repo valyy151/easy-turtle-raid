@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { Trash } from "@/trpc/shared";
+import type { Trash } from "@/trpc/shared";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -20,7 +20,7 @@ import {
   AlertDialogTitle,
 } from "./ui/alert-dialog";
 import { api } from "@/trpc/react";
-import { Session } from "next-auth";
+import type { Session } from "next-auth";
 
 export function TrashPack({
   trash,
@@ -86,7 +86,7 @@ export function TrashPack({
               Cancel
             </AlertDialogCancel>
             <AlertDialogAction
-              onClick={() => deleteTrash.mutate(trash.id!)}
+              onClick={() => deleteTrash.mutate(trash.id)}
               disabled={deleteTrash.isLoading}
               className="bg-gray-800 hover:text-red-400 focus-visible:outline-none "
             >

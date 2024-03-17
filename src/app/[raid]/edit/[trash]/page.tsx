@@ -24,7 +24,7 @@ export default async function EditTrashPage({
         Edit trash pack for {trash?.raid?.name}
       </h1>
 
-      <EditTrash raidId={trash?.raid?.id as string} trash={trash!} />
+      <EditTrash raidId={trash?.raid?.id!} trash={trash!} />
     </div>
   );
 }

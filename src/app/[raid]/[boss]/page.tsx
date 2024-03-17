@@ -5,6 +5,23 @@ import { SquarePenIcon } from "lucide-react";
 import { Tactics } from "@/components/tactics";
 import { SuggestChanges } from "@/components/suggest-changes";
 import { getServerAuthSession } from "@/server/auth";
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { boss: string };
+}): Promise<Metadata> {
+  const id = params.boss;
+
+  const boss = await api.boss.getById.query(id);
+
+  return {
+    title: `${boss?.name} - Tactics`,
+    description: `Tactics for ${boss?.name}`,
+    icons: [{ rel: "icon", url: "/turtle.svg" }],
+  };
+}
 
 export default async function BossPage({
   params,

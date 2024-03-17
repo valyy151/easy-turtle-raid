@@ -1,7 +1,7 @@
 "use client";
 
 import { api } from "@/trpc/react";
-import { Boss } from "@/trpc/shared";
+import type { Boss } from "@/trpc/shared";
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 import { Button } from "./ui/button";
@@ -10,15 +10,15 @@ export function EditTactics({ boss }: { boss: Boss }) {
   const router = useRouter();
   const params = useParams();
   const [dps, setDps] = useState(
-    (boss?.tactics?.dps as string) || "Insert DPS tactics here",
+    boss?.tactics?.dps! || "Insert DPS tactics here",
   );
   const [tank, setTank] = useState(
-    (boss?.tactics?.tank as string) || "Insert Tank tactics here",
+    boss?.tactics?.tank! || "Insert Tank tactics here",
   );
   const [heal, setHeal] = useState(
-    (boss?.tactics?.heal as string) || "Insert Healers tactics here",
+    boss?.tactics?.heal! || "Insert Healers tactics here",
   );
-  const [imageURL, setImageURL] = useState(boss?.imageURL as string);
+  const [imageURL, setImageURL] = useState(boss?.imageURL!);
 
   const updateTactics = api.boss.updateTactics.useMutation({
     onSuccess: () => {
@@ -29,7 +29,7 @@ export function EditTactics({ boss }: { boss: Boss }) {
 
   const saveChanges = () => {
     updateTactics.mutate({
-      id: boss?.id as string,
+      id: boss?.id!,
       dps: dps ?? "Insert DPS tactics here",
       tank: tank ?? "Insert Tank tactics here",
       heal: heal ?? "Insert Healers tactics here",
